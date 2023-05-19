@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Animal>
+
+@foreach(Animal a in Model)
+{
+    <H4>@a.Name</H4>
+    <p>Breed: @a.Breed</p>
+    <p>Age: @a.Age</p>
+    <p>Description: @a.Description</p>
+    <img src="@a.Img" height="100">
+    <a asp-action="Adopt" asp-route-id="@a.Id"> Adopt Now </a>
+}

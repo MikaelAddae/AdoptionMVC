@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Animal>
+
+<h2>What Breed You Need?</h2>
+
+@{
+    string[] breeds = Model.Select(anm => anm.Breed).Distinct().ToArray();
+}
+<form asp-action="Results" asp-controller="Home">
+    <label for="breed">Choose a breed:</label>
+    <select name="breed" id="breed">
+        @foreach (string b in breeds)
+        {
+            <option value="@b"> @b </option>
+        }
+
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<br />
+<br />
+<a asp-action="Add" asp-controller="Home">Add new Animal</a>
